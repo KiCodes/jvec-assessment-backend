@@ -1,21 +1,21 @@
-Contact Book App Backend - README
+# Contact Book App Backend - README
 This README will guide you through the installation and usage of the Contact Book App Backend. This backend is built using Node.js and Express, and it provides endpoints for user authentication, contact management, and user details retrieval. Make sure you have Node.js and MongoDB installed on your system before proceeding.
 
-Prerequisites
+# Prerequisites
 Node.js: If you don't have Node.js installed, you can download it here.
 
 MongoDB: You need a MongoDB database to store user and contact information. You can set up a MongoDB database locally or use a cloud-based service like MongoDB Atlas.
 
-Installation
+# Installation
 Clone the repository:
 git clone https://github.com/KiCodes/jvec-assessment-backend.git
 Navigate to the project directory:
 
-# bash
+- bash
 cd jvec-assessment-backend
 Install dependencies:
 
-bash
+- bash
 Copy code
 npm install
 Set up your MongoDB connection:
@@ -33,7 +33,7 @@ Copy code
 npm start
 The server will now be running on http://localhost:8000. You can access it through API endpoints.
 
-API Endpoints
+# API Endpoints
 1. User Registration
 Endpoint: /api/signup
 Method: POST
@@ -93,6 +93,6 @@ Method: GET
 Description: Retrieve user details for the authenticated user.
 Request Header: x-access-token with the JWT token.
 Response: JSON object with user details or error message.
-Important Notes
+# Important Notes
 Always include the x-access-token header with your JWT token in authenticated endpoints.
 Feel free to use these endpoints to build your Contact Book App frontend. If you have any questions or encounter issues, please refer to the code comments or reach out for assistance.
