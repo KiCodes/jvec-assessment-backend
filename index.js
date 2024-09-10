@@ -10,9 +10,10 @@ const jwt = require("jsonwebtoken");
 
 secretKey = "119e80195e385d22a08ed7b06383240f6aa885b6c6afb52c57414015f323e1fc1f03090e483a6fcd1738b54bb394e4f7d23adcef7306793001d531b15e8ef734";
 
-console.log("Secret Key:", secretKey);
+// console.log("Secret Key:", secretKey);
 
 const app = express();
+const path = require("path")
 const port = 8000;
 const cors = require("cors");
 app.use(cors());
@@ -24,7 +25,7 @@ app.use(passport.initialize());
 const invalidatedTokens = [];
 
 mongoose.connect(
-    "mongodb+srv://Kicodes:Kicodes@cluster0.dfqslx6.mongodb.net/?retryWrites=true&w=majority",
+    "mongodb+srv://Kicodes:Kicodes@cluster0.dfqslx6.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -39,6 +40,14 @@ mongoose.connect(
 
 app.listen(port, () => {
   console.log("server routing to port", port);
+});
+
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, 'frontend/build')));
+
+// Handle any other requests and return the React app's index.html file
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'frontend/build', 'index.html'));
 });
 
 const User = require("./models/user");
